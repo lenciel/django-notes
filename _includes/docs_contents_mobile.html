@@ -1,0 +1,21 @@
+<div class="docs-nav-mobile unit whole show-on-mobiles">
+  <select onchange="if (this.value) window.location.href=this.value">
+    <option value="">Navigate the docs…</option>
+    <optgroup label="Getting started">
+      <option value="{{ site.url }}/docs/home">欢迎</option>
+      <option value="{{ site.url }}/docs/coding-style">编码规范</option>
+      <option value="{{ site.url }}/docs/project-layout">项目布局</option>
+    </optgroup>
+    <optgroup label="Django Projects">
+    </optgroup>
+    <optgroup label="Django Applications">
+    </optgroup>
+    <optgroup label="Deployment">
+    </optgroup>
+    <optgroup label="Miscellaneous">
+      <option value="{{ site.url }}/docs/how-to-contribute">如何贡献内容</option>
+    </optgroup>
+    <optgroup label="Great Readings">
+    </optgroup>
+  </select>
+</div>

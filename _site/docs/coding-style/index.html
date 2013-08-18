@@ -1,0 +1,337 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <title>编码规范</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Arizonia' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="http://docs.zoomteam.cn/serverside/django-best-practices/css/normalize.css" />
+  <link rel="stylesheet" href="http://docs.zoomteam.cn/serverside/django-best-practices/css/gridism.css" />
+  <link rel="stylesheet" href="http://docs.zoomteam.cn/serverside/django-best-practices/css/style.css" />
+  <link rel="stylesheet" href="http://docs.zoomteam.cn/serverside/django-best-practices/css/pygments.css" />
+  <link rel="icon" type="image/x-icon" href="http://docs.zoomteam.cn/serverside/django-best-practices/favicon.png" />
+  <script src="http://docs.zoomteam.cn/serverside/django-best-practices/js/modernizr-2.5.3.min.js"></script>
+</head>
+
+
+<body class="wrap">
+  <header>
+  <nav class="mobile-nav show-on-mobiles">
+    <ul>
+  <li class="">
+    <a href="http://docs.zoomteam.cn/serverside/django-best-practices/">Overview</a>
+  </li>
+  <li class="current">
+    <a href="http://docs.zoomteam.cn/serverside/django-best-practices/docs/home">Doc<span class="show-on-mobiles">s</span><span class="hide-on-mobiles">umentation</span></a>
+  </li>
+  <li class="">
+    <a href="https://github.com/lenciel/django-best-practices"><span class="hide-on-mobiles">View on </span>GitHub</a>
+  </li>
+</ul>
+
+  </nav>
+  <div class="grid">
+    <div class="unit one-third center-on-mobiles">
+      <h1>
+        <a href="http://docs.zoomteam.cn/serverside/django-best-practices/">
+          <span>Django Best Practices</span>
+          <!-- <img src="http://docs.zoomteam.cn/serverside/django-best-practices/img/logo-2x.png" width="249px" height="115px" alt=""> -->
+        </a>
+      </h1>
+    </div>
+    <nav class="main-nav unit two-thirds hide-on-mobiles">
+      <ul>
+  <li class="">
+    <a href="http://docs.zoomteam.cn/serverside/django-best-practices/">Overview</a>
+  </li>
+  <li class="current">
+    <a href="http://docs.zoomteam.cn/serverside/django-best-practices/docs/home">Doc<span class="show-on-mobiles">s</span><span class="hide-on-mobiles">umentation</span></a>
+  </li>
+  <li class="">
+    <a href="https://github.com/lenciel/django-best-practices"><span class="hide-on-mobiles">View on </span>GitHub</a>
+  </li>
+</ul>
+
+    </nav>
+  </div>
+</header>
+
+
+    <section class="docs">
+    <div class="grid">
+
+      <div class="docs-nav-mobile unit whole show-on-mobiles">
+  <select onchange="if (this.value) window.location.href=this.value">
+    <option value="">Navigate the docs…</option>
+    <optgroup label="Getting started">
+      <option value="http://docs.zoomteam.cn/serverside/django-best-practices/docs/home">欢迎</option>
+      <option value="http://docs.zoomteam.cn/serverside/django-best-practices/docs/coding-style">编码规范</option>
+      <option value="http://docs.zoomteam.cn/serverside/django-best-practices/docs/project-layout">项目布局</option>
+    </optgroup>
+    <optgroup label="Django Projects">
+    </optgroup>
+    <optgroup label="Django Applications">
+    </optgroup>
+    <optgroup label="Deployment">
+    </optgroup>
+    <optgroup label="Miscellaneous">
+      <option value="http://docs.zoomteam.cn/serverside/django-best-practices/docs/how-to-contribute">如何贡献内容</option>
+    </optgroup>
+    <optgroup label="Great Readings">
+    </optgroup>
+  </select>
+</div>
+
+
+      <div class="unit four-fifths">
+        <article>
+          <h1>编码规范</h1>
+          <p>Python的 <a href='http://www.python.org/dev/peps/pep-0020/'>The Zen of Python (PEP 20)﻿</a> 是Python编码的最佳实践的浓缩。在编写Django项目的代码时，我们要求：</p>
+
+<ul>
+<li>尽量合理地遵守 <a href='http://www.python.org/dev/peps/pep-0008/'>Style Guide for Python Code(PEP8)</a></li>
+
+<li>遵守 <a href='https://docs.djangoproject.com/en/dev/internals/contributing/writing-code/coding-style/'>Django coding style</a></li>
+</ul>
+
+<h2 id='pep8'>PEP8</h2>
+
+<p>PEP8作为Python官方的编程规范，对命名、缩进、注释等各个方面都有详细的规定。代码提交review之前，所有的文件都应该符合PEP8要求(如果你记不住那些规则，找一个你使用的IDE的插件来检验)。每次代码提交之后，我们的Jenkins上也有PEP8的检查。如果不幸(不幸是指，违反PEP8的文件都不应该上传到代码库)发现了PEP8的violation，要及时去查看并处理。</p>
+
+<p>如果你加入的项目本来就没有遵循PEP8规范，那么就按照项目现有的风格来完成你的开发。你可以在PEP8的 <a href='http://www.python.org/dev/peps/pep-0008/#id8'>A Foolish Consistency is the Hobgoblin of Little Minds</a> 查看这样做的原因以及其他可以不遵循PEP8的万不得已的情况。</p>
+
+<h2 id='imports'>Imports的管理</h2>
+
+<p>PEP8建议 <code>import</code> 应该按照下面的顺序来排列:</p>
+<div class='highlight'><pre><code class='python'><span class='mf'>1.</span> <span class='err'>标准库</span>
+<span class='mf'>2.</span> <span class='err'>项目相关第三方库</span>
+<span class='mf'>3.</span> <span class='err'>本地应用或者库</span>
+</code></pre></div>
+<p>在Django项目中，我们使用的导入顺序一般如下例所示：</p>
+<div class='highlight'><pre><code class='python'><span class='err'>例子</span> <span class='mf'>1.1</span>
+
+<span class='c'># 标准库</span>
+<span class='n'>from</span><span class='err'> </span><span class='n'>math</span><span class='err'> </span><span class='n'>import</span><span class='err'> </span><span class='n'>sqrt</span><span class='err'> </span>
+<span class='n'>from</span><span class='err'> </span><span class='n'>os</span><span class='o'>.</span><span class='n'>path</span><span class='err'> </span><span class='n'>import</span><span class='err'> </span><span class='n'>abspath</span><span class='err'> </span>
+<span class='err'> </span>
+<span class='c'># Django核心库</span>
+<span class='n'>from</span><span class='err'> </span><span class='n'>django</span><span class='o'>.</span><span class='n'>db</span><span class='err'> </span><span class='n'>import</span><span class='err'> </span><span class='n'>models</span><span class='err'> </span>
+<span class='n'>from</span><span class='err'> </span><span class='n'>django</span><span class='o'>.</span><span class='n'>utils</span><span class='o'>.</span><span class='n'>translation</span><span class='err'> </span>\<span class='err'> </span>
+<span class='err'>    </span><span class='n'>import</span><span class='err'> </span><span class='n'>ugettext_lazy</span><span class='err'> </span><span class='k'>as</span><span class='err'> </span><span class='n'>_</span><span class='err'> </span>
+<span class='err'> </span>
+<span class='c'># 第三方应用 </span>
+<span class='n'>from</span><span class='err'> </span><span class='n'>django_extensions</span><span class='o'>.</span><span class='n'>db</span><span class='o'>.</span><span class='n'>models</span><span class='err'> </span>\<span class='err'> </span>
+<span class='err'>    </span><span class='n'>import</span><span class='err'> </span><span class='n'>TimeStampedModel</span><span class='err'> </span>
+<span class='err'> </span>
+<span class='c'># local应用 </span>
+<span class='n'>from</span><span class='err'> </span><span class='n'>splits</span><span class='o'>.</span><span class='n'>models</span><span class='err'> </span><span class='n'>import</span><span class='err'> </span><span class='n'>BananaSplit</span>
+</code></pre></div><div class='note info'>
+  <p>实际的开发中imports不需要像例子1.1那样注释，这里只是为了更清楚地说明。</p>
+</div>
+<p>所以我们的 <code>import</code> 顺序为:</p>
+<div class='highlight'><pre><code class='python'><span class='mf'>1.</span> <span class='err'>标准库</span>
+<span class='mf'>2.</span> <span class='n'>Django</span><span class='err'>的核心库</span>
+<span class='mf'>3.</span> <span class='err'>项目相关的第三方库</span>
+<span class='mf'>4.</span> <span class='n'>Local</span><span class='err'>的</span><span class='n'>application</span><span class='err'>或者</span><span class='n'>library</span>
+</code></pre></div>
+<h2 id='id1'>使用显式声明的相对路径导入</h2>
+
+<p>Python里面使用显式声明的相对路径导入来对各个module进行解耦。我们先看一个使用硬编码路径而不是相对路径导入的例子：</p>
+<div class='highlight'><pre><code class='python'><span class='err'>例子</span> <span class='mf'>1.2</span>
+
+<span class='c'># report/views.py </span>
+<span class='n'>from</span><span class='err'> </span><span class='n'>django</span><span class='o'>.</span><span class='n'>views</span><span class='o'>.</span><span class='n'>generic</span><span class='err'> </span>\<span class='err'> </span>
+<span class='err'>    </span><span class='n'>import</span><span class='err'> </span><span class='n'>CreateView</span><span class='err'> </span>
+<span class='err'> </span>
+<span class='c'># 硬编码的导入方式</span>
+<span class='kn'>from</span> <span class='nn'>report.models</span><span class='err'> </span><span class='n'>import</span><span class='err'> </span><span class='n'>Report</span><span class='err'> </span>
+<span class='n'>from</span><span class='err'> </span><span class='n'>report</span><span class='o'>.</span><span class='n'>forms</span><span class='err'> </span><span class='n'>import</span><span class='err'> </span><span class='n'>ReportForm</span><span class='err'> </span>
+<span class='n'>from</span><span class='err'> </span><span class='n'>report</span><span class='o'>.</span><span class='n'>views</span><span class='err'> </span><span class='n'>import</span><span class='err'> </span><span class='n'>ReportPage</span><span class='err'> </span>
+<span class='err'> </span>
+<span class='n'>class</span><span class='err'> </span><span class='n'>WaffleConeCreateView</span><span class='p'>(</span><span class='n'>ReportPage</span><span class='p'>,</span><span class='err'> </span>
+<span class='err'>                        </span><span class='n'>CreateView</span><span class='p'>):</span><span class='err'> </span>
+<span class='err'>    </span><span class='n'>model</span><span class='err'> </span><span class='o'>=</span><span class='err'> </span><span class='n'>Report</span><span class='err'> </span>
+<span class='err'>    </span><span class='n'>form_class</span><span class='err'> </span><span class='o'>=</span><span class='err'> </span><span class='n'>ReportForm</span>
+</code></pre></div>
+<p>虽然在当前项目里面这样的导入是没有问题的但是会严重降低模块的移植性和重用性：</p>
+
+<ul>
+<li>如果你需要在其他项目里面使用这个 <code>report</code> app，但是那个项目里面已经有一个叫 <code>report</code> 的包了呢？</li>
+
+<li>如果你突然发现用户要的是图表而不是表格，所以这个app的名字要从 <code>report</code> 要改成 <code>chart</code> 呢？</li>
+</ul>
+
+<p>如果是硬编码的导入，出现上面的需求时，你就得到每个文件里面去把这些导入都改一遍。下面我们看看如何使用显式的相对路径导入：</p>
+<div class='highlight'><pre><code class='python'><span class='err'>例子</span> <span class='mf'>1.3</span>
+
+<span class='c'># report/views.py </span>
+<span class='n'>from</span><span class='err'> </span><span class='n'>django</span><span class='o'>.</span><span class='n'>views</span><span class='o'>.</span><span class='n'>generic</span><span class='err'> </span>\<span class='err'> </span>
+<span class='err'>    </span><span class='n'>import</span><span class='err'> </span><span class='n'>CreateView</span><span class='err'> </span>
+<span class='err'> </span>
+<span class='c'># Relative imports of the </span>
+<span class='c'>#   ’report’ package </span>
+<span class='n'>from</span><span class='err'> </span><span class='o'>.</span><span class='n'>models</span><span class='err'> </span><span class='n'>import</span><span class='err'> </span><span class='n'>Report</span><span class='err'> </span>
+<span class='n'>from</span><span class='err'> </span><span class='o'>.</span><span class='n'>forms</span><span class='err'> </span><span class='n'>import</span><span class='err'> </span><span class='n'>ReportForm</span><span class='err'> </span>
+<span class='n'>from</span><span class='err'> </span><span class='n'>core</span><span class='o'>.</span><span class='n'>views</span><span class='err'> </span><span class='n'>import</span><span class='err'> </span><span class='n'>ReportPage</span>
+
+<span class='n'>class</span><span class='err'> </span><span class='n'>WaffleConeCreateView</span><span class='p'>(</span><span class='n'>ReportPage</span><span class='p'>,</span><span class='err'> </span>
+<span class='err'>                        </span><span class='n'>CreateView</span><span class='p'>):</span><span class='err'> </span>
+<span class='err'>    </span><span class='n'>model</span><span class='err'> </span><span class='o'>=</span><span class='err'> </span><span class='n'>Report</span><span class='err'> </span>
+<span class='err'>    </span><span class='n'>form_class</span><span class='err'> </span><span class='o'>=</span><span class='err'> </span><span class='n'>ReportForm</span>
+</code></pre></div>
+<p>下面总结一下Python里面不同的导入方式和它们在Django项目中使用的方式：</p>
+<div class='mobile-side-scroller'>
+<table>
+  <thead>
+    <tr>
+      <th>Code</th>
+      <th>导入方式</th>
+      <th>用途</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class='setting'>
+      <td>
+        <p class='description'>
+          from core.views import FoodMixin
+        </p>
+      </td>
+      <td class='align-center'>
+        <p>绝对路径导入</p>
+      </td>
+      <td>
+        <p class='description'>从当前app之外导入</p>
+      </td>
+    </tr>
+    <tr class='setting'>
+      <td>
+        <p class='description'>
+          from .models import WaffleCone
+        </p>
+      </td>
+      <td class='align-center'>
+        <p>显式声明的相对路径</p>
+      </td>
+      <td>
+        <p class='description'>推荐用来从当前app的另一个module中导入</p>
+      </td>
+    </tr>
+    <tr class='setting'>
+      <td>
+        <p class='description'>
+          from cones.models import WaffleCone
+        </p>
+      </td>
+      <td class='align-center'>
+        <p>隐式声明的相对路径</p>
+      </td>
+      <td>
+        <p class='description'>常被用来从当前app的另一个module中导入，不推荐</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div><div class='note'>
+  <h5>ProTips™ PEP 328和PEP 8难道不是矛盾的么？</h5>
+  <p>Guido Van Rossum <a href='http://mail.python.org/pipermail/python-dev/2010-October/104476.html'>这样说</a></p>
+  <p>更多信息见 <a href='http://www.python.org/dev/peps/pep-0328/'>这里</a></p>
+</div>
+          <div class="section-nav">
+  <div class="left align-right">
+    
+      <a href="http://docs.zoomteam.cn/serverside/django-best-practices/docs/home" class="prev">
+        上一页
+      </a>
+    
+  </div>
+  <div class="right align-left">
+    
+      <a href="http://docs.zoomteam.cn/serverside/django-best-practices/docs/project-layout" class="next">
+        下一页
+      </a>
+    
+  </div>
+  <div class="clear"></div>
+</div>
+
+
+        </article>
+      </div>
+
+      <div class="unit one-fifth hide-on-mobiles">
+  <aside>
+    <h4>General Topics</h4>
+    <ul>
+      <li class="">
+        <a href="http://docs.zoomteam.cn/serverside/django-best-practices/docs/home">欢迎</a>
+      </li>
+      <li class="current">
+        <a href="http://docs.zoomteam.cn/serverside/django-best-practices/docs/coding-style">编码规范</a>
+      </li>
+      <li class="">
+        <a href="http://docs.zoomteam.cn/serverside/django-best-practices/docs/project-layout">项目布局</a>
+      </li>
+    </ul>
+    <h4>Django Projects</h4>
+    <ul>
+    </ul>
+    <h4>Django Applications</h4>
+    <ul>
+    </ul>
+    <h4>Deployment</h4>
+    <ul>
+    </ul>
+    <h4>Miscellaneous</h4>
+    <ul>
+      <li class="">
+        <a href="http://docs.zoomteam.cn/serverside/django-best-practices/docs/how-to-contribute">如何贡献内容</a>
+      </li>
+    </ul>
+    <h4>Great Readings</h4>
+    <ul>
+    </ul>
+  </aside>
+</div>
+
+
+      <div class="clear"></div>
+
+    </div>
+  </section>
+
+
+  <footer>
+  <div class="grid">
+    <div class="unit one-third center-on-mobiles">
+      <p>By <a href="http://zoomteam.cn">ZooM Team</a>, highly inspired by the official jekyll docs.</p>
+    </div>
+    <div class="unit two-thirds align-right center-on-mobiles">
+      <p>
+        这个站点的代码也在
+        <a href="https://github.com/lenciel/django-best-practices">
+          <img src="http://docs.zoomteam.cn/serverside/django-best-practices/img/footer-logo.png" alt="GitHub • Social coding">
+        </a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+  
+
+
+  <!-- Google Analytics (http://google.com/analytics) -->
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-41581755-1', 'http://docs.zoomteam.cn/serverside/django-best-practices');
+  ga('send', 'pageview');
+  </script>
+
+
+
+</body>
+</html>
