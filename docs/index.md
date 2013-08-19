@@ -34,4 +34,4 @@ permalink: /docs/home/
   <p>帮助你避免掉进坑里的一些提示。</p>
 </div>
 
-如果你发现有什么没有讲到的地方，或者有任何问题，可以 [提交一个issue](https://github.com/lenciel/django-best-practices/issues/new) 给我们。
+如果你发现有什么没有讲到的地方，或者有任何问题，可以 [提交一个issue](https://github.com/lenciel/django-notes/issues/new) 给我们。

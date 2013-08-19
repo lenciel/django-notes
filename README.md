@@ -1,4 +1,4 @@
-django-best-practice
+django-notes
 ====================
 
-django best practices
+django best practice notes

@@ -27,7 +27,7 @@ Workflow
 * Clone你自己的fork:
 
 {% highlight bash %}
-git clone git://github.com/<username>/django-best-practices.git
+git clone git://github.com/<username>/django-notes.git
 {% endhighlight %}
 
 * 创建一个 `topic branch` 来放你的修改:
@@ -39,8 +39,8 @@ git checkout -b my_awesome_feature
 * 修改后确保一切正常:
 
 {% highlight bash %}
-~/django-best-practices $ cd site
-~/django-best-practices/site $ jekyll serve --watch
+~/django-notes $ cd site
+~/django-notes/site $ jekyll serve --watch
 # => 查看 http://localhost:4000
 {% endhighlight %}
 
@@ -127,7 +127,7 @@ Jekyll其实主要就是个文本转换的引擎。你把用你自己熟悉的ma
       </td>
       <td>
         <p>
-          
+
           页面的模板。在 `_includes` 中定义的内容可以在模板中被使用，
           <code>{% raw %}{{ content }}{% endraw %}</code>
           可以用来规定页面内容被插入到哪里。
