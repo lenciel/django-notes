@@ -1,3 +1,6 @@
 /serve/
 /_site/
 /build/
+
+/npm-debug.log
+/.idea/

@@ -2,7 +2,7 @@
 layout: docs
 title: 项目布局
 prev_section: coding-style
-next_section: how-to-contribute
+next_section: app-design-rules
 permalink: /docs/project-layout/
 ---
 
