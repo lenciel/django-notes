@@ -1,6 +1,6 @@
 pygments: true
 relative_permalinks: false
-url: http://lenciel.cn/django-notes
+url: http://dbp.lenciel.com
 #url: http://0.0.0.0:4000
 google_analytics_id: UA-175991-3
 markdown: kramdown
