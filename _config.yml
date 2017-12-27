@@ -1,4 +1,4 @@
-#pygments: true
+pygments: true
 relative_permalinks: false
 url: http://dbp.lenciel.com
 #url: http://0.0.0.0:4000
