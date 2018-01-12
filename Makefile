@@ -1,7 +1,7 @@
 all: update
 
 preview:
-	jekyll build && jekyll serve --watch
+	jekyll build && jekyll serve --watch --host=172.16.121.110
 
 update:
 	jekyll build && \

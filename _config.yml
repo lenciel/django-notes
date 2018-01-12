@@ -1,7 +1,6 @@
 highlighter: pygments
 relative_permalinks: false
-url: https://dbp.lenciel.com
-#url: http://0.0.0.0:4000
+#url: https://dbp.lenciel.com
 google_analytics_id: UA-175991-3
 markdown: kramdown
 kramdown:
